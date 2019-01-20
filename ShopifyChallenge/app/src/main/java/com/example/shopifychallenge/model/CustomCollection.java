@@ -7,7 +7,7 @@ public class CustomCollection {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private double id;
     @SerializedName("handle")
     @Expose
     private String handle;
@@ -39,11 +39,11 @@ public class CustomCollection {
     @Expose
     private Image image;
 
-    public Integer getId() {
+    public double getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(double id) {
         this.id = id;
     }
 

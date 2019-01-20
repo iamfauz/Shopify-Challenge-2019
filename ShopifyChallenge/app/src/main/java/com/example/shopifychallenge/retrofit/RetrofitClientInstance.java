@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClientInstance {
 
     private static Retrofit retrofit;
-    private static final String BASE_URL = "http://shopicruit.myshopify.com";
+    private static final String BASE_URL = "https://shopicruit.myshopify.com/";
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {

@@ -21,6 +21,8 @@ import com.example.shopifychallenge.retrofit.ApiService;
 import com.example.shopifychallenge.retrofit.RetrofitClientInstance;
 import com.example.shopifychallenge.utils.CollectionsAdapter;
 
+import java.io.IOException;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
@@ -124,11 +126,6 @@ public class CollectionListFragment extends Fragment implements CollectionsAdapt
             @Override
             public void onResponse(Call<CollectionsResponse> call, Response<CollectionsResponse> response) {
 
-                Log.d("DEBUG", response.code() + "");
-                Log.d("DEBUG", response.message() + "");
-                Log.d("DEBUG", response.raw() + "");
-                Log.d("DEBUG", response.headers() + "");
-                Log.d("DEBUG", response.body() + "");
                 if (response.isSuccessful()) {
 
                     mSwipeRefreshLayout.setRefreshing(false);
@@ -145,6 +142,9 @@ public class CollectionListFragment extends Fragment implements CollectionsAdapt
 
             @Override
             public void onFailure(Call<CollectionsResponse> call, Throwable t) {
+                Log.d("DEBUG", t.getLocalizedMessage() + "");
+                Log.d("DEBUG", t.getMessage() + "");
+                t.printStackTrace();
 
                 Toast.makeText(getActivity(), "Check your internet connection", Toast.LENGTH_LONG).show();
                 mSwipeRefreshLayout.setRefreshing(false);

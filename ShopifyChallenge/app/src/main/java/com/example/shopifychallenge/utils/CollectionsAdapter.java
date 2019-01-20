@@ -51,8 +51,6 @@ public class CollectionsAdapter extends RecyclerView.Adapter<CollectionsAdapter.
         //Views
         public @BindView(R.id.collection_title)
         TextView titleTextView;
-        public @BindView(R.id.collection_date)
-        TextView dateTextView;
         public @BindView(R.id.coverImage)
         ImageView coverImage;
 
@@ -98,7 +96,6 @@ public class CollectionsAdapter extends RecyclerView.Adapter<CollectionsAdapter.
 
         holder.customCollection = customCollectionList.get(position);
         holder.titleTextView.setText(customCollectionList.get(position).getTitle());
-        holder.dateTextView.setText(customCollectionList.get(position).getPublishedAt());
 
         //Image View Logic
         if (!TextUtils.isEmpty(customCollectionList.get(position).getImage().getSrc())) {

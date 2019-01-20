@@ -9,9 +9,9 @@
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
 
-    card_view:cardCornerRadius="6dp"
-    card_view:cardElevation="5dp"
-    card_view:cardUseCompatPadding="true">
+    card_view:cardCornerRadius="2dp"
+    card_view:cardElevation="1dp"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,8 +20,8 @@
 
         <ImageView
             android:id="@+id/coverImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
@@ -35,26 +35,16 @@
             android:orientation="vertical"
             android:padding="5dp">
 
-            <!-- TextView Employee Name -->
+
             <TextView
                 android:id="@+id/collection_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Emirates Motor Company unveils all-new Mercedes-Benz 2015 C-Class"
-
+                android:text="AeroDyanamic Collection"
                 android:textSize="15sp"
-
-
                 />
-            <!-- TextView Employee Email -->
-            <TextView
-                android:id="@+id/collection_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="27/11/2018"
 
-                android:textSize="10sp" />
+
 
 
         </LinearLayout>

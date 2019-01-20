@@ -12,7 +12,7 @@ public interface ApiService {
 
 
     //Get all collections
-    @GET("/admin/custom_collections.json")
+    @GET("admin/custom_collections.json")
     Call<CollectionsResponse> getCollections(@Query("page") int page,
                                              @Query("access_token") String accessToken);
 
