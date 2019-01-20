@@ -116,7 +116,7 @@ public class ProductsFragment extends Fragment implements ProductsAdapter.ListIt
     }
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
 
         // Set title bar
@@ -229,13 +229,6 @@ public class ProductsFragment extends Fragment implements ProductsAdapter.ListIt
             @Override
             public void onResponse(Call<CollectsResponse> call, Response<CollectsResponse> response) {
 
-                Log.d("DEBUG", response.code() + "");
-                Log.d("DEBUG", response.message() + "");
-                Log.d("DEBUG", response.raw() + "");
-                Log.d("DEBUG", response.headers() + "");
-                Log.d("DEBUG", response.body() + "");
-                Log.d("DEBUG", response.errorBody() + "");
-
                 if (response.isSuccessful()) {
 
                     loadProductsFromNetworkAndPopulateUI(service, response.body().getCollects());
@@ -252,9 +245,6 @@ public class ProductsFragment extends Fragment implements ProductsAdapter.ListIt
 
             @Override
             public void onFailure(Call<CollectsResponse> call, Throwable t) {
-                Log.d("DEBUG", t.getLocalizedMessage() + "");
-                Log.d("DEBUG", t.getMessage() + "");
-                t.printStackTrace();
 
                 Toast.makeText(getActivity(), "Check your internet connection", Toast.LENGTH_LONG).show();
                 mSwipeRefreshLayout.setRefreshing(false);
@@ -291,13 +281,6 @@ public class ProductsFragment extends Fragment implements ProductsAdapter.ListIt
             @Override
             public void onResponse(Call<ProductsResponse> call, Response<ProductsResponse> response) {
 
-                Log.d("DEBUG", response.code() + "");
-                Log.d("DEBUG", response.message() + "");
-                Log.d("DEBUG", response.raw() + "");
-                Log.d("DEBUG", response.headers() + "");
-                Log.d("DEBUG", response.body() + "");
-                Log.d("DEBUG", response.errorBody() + "");
-
                 if (response.isSuccessful()) {
 
                     mSwipeRefreshLayout.setRefreshing(false);
@@ -315,9 +298,6 @@ public class ProductsFragment extends Fragment implements ProductsAdapter.ListIt
 
             @Override
             public void onFailure(Call<ProductsResponse> call, Throwable t) {
-                Log.d("DEBUG", t.getLocalizedMessage() + "");
-                Log.d("DEBUG", t.getMessage() + "");
-                t.printStackTrace();
 
                 Toast.makeText(getActivity(), "Check your internet connection", Toast.LENGTH_LONG).show();
                 mSwipeRefreshLayout.setRefreshing(false);

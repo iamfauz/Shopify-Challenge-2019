@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Method to change action bar title
+     *
      * @param title
      */
     public void setActionBarTitle(String title) {
