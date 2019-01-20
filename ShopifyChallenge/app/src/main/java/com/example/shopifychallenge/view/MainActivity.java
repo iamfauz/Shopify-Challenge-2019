@@ -13,6 +13,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentUtils.replaceFragment(this, CollectionListFragment.newInstance(), R.id.fragment_container, true);
+        FragmentUtils.replaceFragment(this, CollectionListFragment.newInstance(), R.id.fragment_container, false);
+    }
+
+    /**
+     * Method to change action bar title
+     * @param title
+     */
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
     }
 }

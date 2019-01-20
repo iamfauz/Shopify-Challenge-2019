@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -20,6 +21,8 @@ import com.example.shopifychallenge.model.CustomCollection;
 import com.example.shopifychallenge.retrofit.ApiService;
 import com.example.shopifychallenge.retrofit.RetrofitClientInstance;
 import com.example.shopifychallenge.utils.CollectionsAdapter;
+import com.example.shopifychallenge.utils.Constants;
+import com.example.shopifychallenge.utils.FragmentUtils;
 
 import java.io.IOException;
 
@@ -58,6 +61,16 @@ public class CollectionListFragment extends Fragment implements CollectionsAdapt
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        // Set title bar
+        ((MainActivity) getActivity())
+                .setActionBarTitle("Collections");
+
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -90,7 +103,6 @@ public class CollectionListFragment extends Fragment implements CollectionsAdapt
     }
 
 
-
     /**
      * Method to initialize recyclerView
      */
@@ -120,7 +132,7 @@ public class CollectionListFragment extends Fragment implements CollectionsAdapt
         /*Create handle for the RetrofitInstance interface*/
         ApiService service = RetrofitClientInstance.getRetrofitInstance().create(ApiService.class);
 
-        Call<CollectionsResponse> call = service.getCollections(1, "c32313df0d0ef512ca64d5b336a0d7c6");
+        Call<CollectionsResponse> call = service.getCollections(1, Constants.ACCESS_TOKEN);
 
         call.enqueue(new Callback<CollectionsResponse>() {
             @Override
@@ -166,7 +178,9 @@ public class CollectionListFragment extends Fragment implements CollectionsAdapt
     @Override
     public void onListItemClick(CustomCollection customCollection) {
 
-        //TODO replace fragment
+        FragmentUtils.replaceFragment((AppCompatActivity) getActivity(),
+                ProductsFragment.newInstance(customCollection.getId(), customCollection.getTitle(), customCollection.getBodyHtml(),
+                        customCollection.getImage().getSrc()), R.id.fragment_container, true);
 
 
     }
